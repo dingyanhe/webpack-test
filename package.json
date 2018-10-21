@@ -3,9 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "better-scroll": "^1.13.2",
+    "jsonp": "^0.2.1",
+    "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
-    "react-scripts": "2.0.5"
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.0.5",
+    "swiper": "^4.4.1"
   },
   "scripts": {
     "start": "node scripts/customized-build start",
