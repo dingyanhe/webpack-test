@@ -3,9 +3,10 @@ import React from 'react'
 import Swiper from 'swiper'
 import {getCarousel, getNewAlbum} from "@/api/recommend"
 import * as AlbumModel from "@/model/album"
-import Scroll from '@/common/scroll/scroll'
-
 import {CODE_SUCCESS} from "@/api/config"
+
+import Loading from '@/common/loading/loading'
+import Scroll from '@/common/scroll/scroll'
 import 'swiper/dist/css/swiper.css'
 import './recommend.styl'
 
@@ -13,6 +14,7 @@ export default class Recommend extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            loading: true,
             sliderList: [],
             newAlbums: [],
             refreshScroll: false
@@ -45,6 +47,7 @@ export default class Recommend extends React.Component {
                     return new Date(b.public_time).getTime() - new Date(a.public_time).getTime()
                 })
                 this.setState({
+                    loading: false,
                     newAlbums: albumList
                 }, () => {
                     this.setState({
@@ -115,6 +118,7 @@ export default class Recommend extends React.Component {
                         </div>
                     </div>
                 </Scroll>
+                <Loading title="正在加载..." show={this.state.loading} />
             </div>
         )
     }
